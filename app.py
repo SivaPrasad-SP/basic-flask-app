@@ -2,15 +2,17 @@ from flask import Flask
 
 app = Flask(__name__)
 
-
-@app.route("/")
+@app.route('/')
 def home():
-    return "<h1 style='text-align: center; margin-top: 100px;'>Hello, Flask project is working..!</h1>"
+    return "Hello, World!"
 
-@app.route("/other")
-def other():
-    return "<h1 style='text-align: center; margin-top: 100px;'> ----- This is another route ----- </h1>"
+def square(n):
+    return n * n
 
+@app.route('/square/<int:n>')
+def square_route(n):
+    result = square(n)
+    return f"Square of {n} is {result}"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
