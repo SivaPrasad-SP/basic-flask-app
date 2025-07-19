@@ -12,7 +12,7 @@ def square(n):
 @app.route('/square/<int:n>')
 def square_route(n):
     result = square(n)
-    return f"Square of {n} is {result+1}"
+    return f"The Square of {n} is {result+1}"
 
 if __name__ == '__main__':
     app.run(debug=True)
